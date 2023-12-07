@@ -1,0 +1,12 @@
+{
+  "name": "Automatic Google Sheets Data Connection",
+  "type": "DATA_SOURCE",
+  "description": "Connects automatically to all data in a Google Sheet.",
+  "iconUrl": "https://www.example.com/icon.png",
+  "oauthScopes": ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  "supportsDynamicData": false,
+  "userInterface": {
+    "closingDialog": false,
+    "url": "https://www.example.com/index.html"
+  }
+}
