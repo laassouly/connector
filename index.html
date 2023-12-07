@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Google Sheets Data Connection</title>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+  <h1>Automatic Google Sheets Data Connection</h1>
+  <script>
+    function connectToSheets() {
+      // Open the Google Sheets picker.
+      google.script.run.withSuccessHandler(function(spreadsheetId) {
+        // Connect to the selected spreadsheet using the Looker Studio Data Source API.
+        const dataSource = LookerStudio.getDataSources().createDataSource({
+          type: 'GOOGLE_SHEETS',
+          id: spreadsheetId,
+        });
+        // Add the data source to the current report.
+        LookerStudio.getDataSources().addDataSource(dataSource);
+      }).withFailureHandler(function(error) {
+        console.error(error);
+      }).openSheetsPicker();
+    }
+
+    connectToSheets();
+  </script>
+</body>
+</html>
